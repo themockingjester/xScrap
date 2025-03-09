@@ -40,9 +40,17 @@ func scrapUsingXPath(scrapInput *structs.ScrapDataUsingXPath) (*structs.ScrapDat
 	xPath := scrapInput.ByXPath
 	url := scrapInput.Url
 	// Create a new Chrome context
-	ctx, cancel := chromedp.NewContext(context.Background())
+	allocCtx, cancel := chromedp.NewExecAllocator(context.Background(), append(
+		chromedp.DefaultExecAllocatorOptions[:],
+		chromedp.Flag("headless", true),              // Run without UI
+		chromedp.Flag("no-sandbox", true),            // Bypass sandbox restrictions
+		chromedp.Flag("disable-gpu", true),           // No GPU rendering
+		chromedp.Flag("disable-dev-shm-usage", true), // Fix shared memory issues
+	)...)
 	defer cancel()
 
+	ctx, cancel := chromedp.NewContext(allocCtx)
+	defer cancel()
 	// Variable to store extracted text
 	var extractedText string
 
