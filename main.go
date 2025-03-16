@@ -8,6 +8,7 @@ import (
 	"syscall"
 
 	"github.com/gin-gonic/gin"
+	"github.com/xscrap/chromeDp"
 	"github.com/xscrap/routes"
 	"github.com/xscrap/structs"
 )
@@ -17,7 +18,7 @@ var AppConfig structs.AppConfig
 func main() {
 
 	appWaitGroup := sync.WaitGroup{}
-
+	chromeDp.InitChrome()
 	AppConfig = structs.AppConfig{
 		WaitGroup: &appWaitGroup,
 	}
@@ -39,6 +40,7 @@ func shutdown() {
 	fmt.Println("Would run cleanup tasks...")
 
 	AppConfig.WaitGroup.Wait()
+	chromeDp.CloseChrome()
 
 	fmt.Println("Shutdown complete.")
 
