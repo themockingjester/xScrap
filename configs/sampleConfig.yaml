@@ -1,0 +1,5 @@
+########### This is the sample config file while using the app put the proper values in respective contants also rename the file as config.yaml
+# Required to configure
+server:
+  port: 7073
+  environment: production

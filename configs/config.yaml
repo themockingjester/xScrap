@@ -1,0 +1,5 @@
+# Required to configure
+server:
+  port: 7073
+  environment: production
+
