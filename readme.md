@@ -1,8 +1,8 @@
-xScrap 🕷️
+# xScrap 🕷️
 
 xScrap is a high-performance scraping service built with Golang. It is designed to efficiently extract data while dynamically optimizing system resources to prevent crashes or hangs.
 
-🚀 Features
+### 🚀 Features
 
 Adaptive Resource Handling – Automatically adjusts scraping windows based on available RAM, ensuring smooth operation.
 
@@ -16,24 +16,22 @@ Fast & Efficient – Optimized for speed and concurrency with Go’s goroutines.
 
 Robust Handling – Better manages edge cases to keep scraping stable.
 
-📦 Getting Started
+### 📦 Getting Started
 
 Follow these steps to run the app locally:
 
 1. Clone the Repository
-git clone https://github.com/yourusername/xScrap.git
-cd xScrap
+git clone https://github.com/themockingjester/xScrap.git
+then go to project using (cd xScrap)
 
 2. Install Dependencies
-go get ./...
+(using go get command ).
 
-3. Run the Application
+4. Run the Application
 go run ./cmd/server/server.go
 
-🛠️ Tech Stack
+### 🛠️ Tech Stack
 
 Language: Golang
 
-Core: net/http, goquery, chromedp (if you’re using headless browsing)
-
-Architecture: Modular, service-based design
+Core: net/http, chromedp
