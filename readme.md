@@ -40,3 +40,6 @@ Core: net/http, chromedp
 
 ### Demo
 Check out a demo where xScrap is shown handling both normal and heavy load scenarios (simulated/mimicked): [here](https://drive.google.com/file/d/1Z_4di1q2wjE4MkkcHnFLPNms000ce1xa/view?usp=sharing)
+
+In this demo, xScrap dynamically adjusts the number of scraping tabs based on system load. Under high load, fewer tabs are opened to avoid overloading the system, while under normal load, multiple parallel scraping tabs work simultaneously. This ensures graceful handling of requests while efficiently utilizing system resources.
+
