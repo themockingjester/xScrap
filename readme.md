@@ -39,4 +39,4 @@ Language: Golang
 Core: net/http, chromedp
 
 ### Demo
-Check out a demo where xScrap is shown handling both normal and heavy load scenarios (simulated/mimicked): ![xScrap Demo](https://drive.google.com/file/d/1Z_4di1q2wjE4MkkcHnFLPNms000ce1xa/view?usp=sharing)
+Check out a demo where xScrap is shown handling both normal and heavy load scenarios (simulated/mimicked): [here](https://drive.google.com/file/d/1Z_4di1q2wjE4MkkcHnFLPNms000ce1xa/view?usp=sharing)
