@@ -1,5 +1,17 @@
 ########### This is the sample config file while using the app put the proper values in respective contants also rename the file as config.yaml
 # Required to configure
+# Required to configure
 server:
   port: 7073
   environment: production
+
+  # Below parameter specifies what should be the left available space in RAM in MB , for which we have to start decreasing the concurrency for scrapping windows, Don't worry once we get enough space later concurrency will start increasing
+  dynamicConcurrencyRamThreshold: 5000
+
+
+  # Below key specifies what should be the initial number of allowed concurrent scraping windows
+  initialMaxAllowedScrappingWindows:3
+  
+
+   # Below key specifies at what regular interval in seconds available ram need to check for handling dynamic concurrency flow
+  timeIntervalForAvailableRAMCheck: 1

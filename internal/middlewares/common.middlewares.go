@@ -1,9 +1,8 @@
 package middlewares
 
 import (
-	config "github.com/xscrap/configs"
-
 	"github.com/gin-gonic/gin"
+	config "github.com/xscrap/configs"
 )
 
 func ApplyWaitGroup(appConfig *config.AppConfig, appDIContainer *config.AppDIContainer) gin.HandlerFunc {
@@ -15,5 +14,15 @@ func ApplyWaitGroup(appConfig *config.AppConfig, appDIContainer *config.AppDICon
 		defer appConfig.WaitGroup.Done()
 
 		c.Next() // Process request
+	}
+}
+
+func LimitMiddleware(appConfig *config.AppConfig, appDIContainer *config.AppDIContainer) gin.HandlerFunc {
+
+	l := appDIContainer.DynamicLimiter
+	return func(c *gin.Context) {
+		l.Acquire()
+		defer l.Release()
+		c.Next()
 	}
 }
