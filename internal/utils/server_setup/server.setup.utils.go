@@ -1,7 +1,6 @@
 package server_setup
 
 import (
-	"fmt"
 	"time"
 
 	config "github.com/xscrap/configs"
@@ -31,12 +30,12 @@ func SetupServer(appDIContainer *config.AppDIContainer, appConfig *config.AppCon
 
 func ManageDynamicConcurrencyLimiter(appDIContainer *config.AppDIContainer, appConfig *config.AppConfig) {
 
-	limiter := machine.NewDynamicLimiter(appConfig.Server.InitialMaxAllowedScrappingWindows) // start with 3
+	limiter := machine.NewDynamicLimiter(appConfig.Server.InitialMaxAllowedScrappingWindows) // start with initial number
 	appDIContainer.DynamicLimiter = limiter
 	go func() {
 		for {
 			ram := machine.GetAvailableRAMMB()
-			fmt.Println(ram, 6555)
+
 			if ram < uint64(appConfig.Server.DynamicConcurrencyRamThreshold) { // if less than Allocated Threshold
 				limiter.UpdateLimit(-2, true) // restrict concurrency
 			} else {
