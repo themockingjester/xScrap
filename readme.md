@@ -16,6 +16,8 @@ Fast & Efficient – Optimized for speed and concurrency with Go’s goroutines.
 
 Robust Handling – Better manages edge cases to keep scraping stable.
 
+xScrap can be tuned as per your needs by updating values in the configuration file. You can adjust settings such as concurrency, scraping windows, retries, and other runtime behaviors to optimize performance and resource usage.
+
 ### 📦 Getting Started
 
 Follow these steps to run the app locally:
@@ -35,3 +37,6 @@ go run ./cmd/server/server.go
 Language: Golang
 
 Core: net/http, chromedp
+
+### Demo
+Check out a demo where xScrap is shown handling both normal and heavy load scenarios (simulated/mimicked): [xScrap]([https://github.com/yourusername/xScrap](https://github.com/themockingjester/xScrap/blob/master/assets/demo.webm))
